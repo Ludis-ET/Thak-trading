@@ -188,7 +188,7 @@ export default function Home() {
       </motion.nav>
 
       {/* Hero Section */}
-      <section id="hero" className="pt-28 pb-12 px-6 bg-gradient-to-b from-card to-background">
+      <section id="hero" className="pt-28 pb-12 px-6 bg-gradient-to-b from-card/50 to-background/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div className="space-y-6" variants={slideInVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -243,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* About Thak Trading Section */}
-      <section id="about" className="py-20 px-6 bg-background">
+      <section id="about" className="py-20 px-6 bg-background/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <motion.div className="space-y-12" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.div className="space-y-4 max-w-2xl" variants={itemVariants}>
@@ -273,15 +273,15 @@ export default function Home() {
       </section>
 
       {/* Parent Company Section */}
-      <section id="parent" className="py-20 px-6 bg-card">
+      <section id="parent" className="py-20 px-6 bg-card/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <motion.div className="space-y-12" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.div className="space-y-2 max-w-2xl" variants={itemVariants}>
 
-              <p className="text-secondary text-sm font-semibold tracking-widest uppercase">Import Division</p>
-              <h2 className="text-4xl font-bold tracking-tight">Global Imports</h2>
+              <p className="text-secondary text-sm font-semibold tracking-widest uppercase">Our Heritage</p>
+              <h2 className="text-4xl font-bold tracking-tight">Tsion Alemayehu Import</h2>
               <p className="text-muted-foreground text-lg pt-2">
-                Sourcing premium industrial inputs and automotive products from trusted global partners.
+                Our parent company with extensive experience serving global industries since its founding.
               </p>
             </motion.div>
 
@@ -335,7 +335,7 @@ export default function Home() {
       </section>
 
       {/* Products Section - Spices */}
-      <section id="products" className="py-20 px-6 bg-background">
+      <section id="products" className="py-20 px-6 bg-background/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <motion.div className="space-y-12" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.div className="space-y-4" variants={itemVariants}>
@@ -389,7 +389,7 @@ export default function Home() {
       </section>
 
       {/* Products Section - Pulses */}
-      <section className="py-20 px-6 bg-card">
+      <section className="py-20 px-6 bg-card/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <motion.div className="space-y-12" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.div className="space-y-4" variants={itemVariants}>
@@ -447,7 +447,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 px-6 bg-background">
+      <section className="py-20 px-6 bg-background/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <motion.div className="space-y-12" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.div className="space-y-4 max-w-2xl" variants={itemVariants}>
@@ -485,7 +485,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-card">
+      <section id="contact" className="py-20 px-6 bg-card/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <motion.div className="space-y-12" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.div className="space-y-4 max-w-2xl" variants={itemVariants}>
@@ -613,7 +613,7 @@ export default function Home() {
 
       {/* Footer */}
       <motion.footer
-        className="border-t border-border bg-card py-12 px-6"
+        className="border-t border-border bg-card/50 backdrop-blur-sm py-12 px-6"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
