@@ -201,7 +201,7 @@ export default function Home() {
                   Excellence in Spices & Legumes
                 </motion.h1>
                 <motion.p variants={itemVariants} className="text-lg text-muted-foreground text-balance">
-                  Thak Trading One Member PLC specializes in premium spices and legumes, backed by the proven expertise of our parent company Tsion Alemayehu Import.
+                  Thak Trading One Member PLC specializes in the export of premium spices and legumes, backed by the proven expertise of our parent company, Tsion Alemayehu Import.
                 </motion.p>
               </motion.div>
               <motion.div className="flex gap-4 pt-6" variants={containerVariants} initial="hidden" animate="visible">
