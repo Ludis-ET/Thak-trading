@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: 'Thak Trading One Member PLC | Spices & Pulses Export',
   description: 'Premium import and export of authentic spices and legumes. Supplying quality products worldwide since 2020.',
   generator: 'v0.app',
+  icons: {
+    icon: '/logo.png',
+  },
 }
 
 export default function RootLayout({

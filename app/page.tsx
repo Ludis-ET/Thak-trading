@@ -90,7 +90,7 @@ export default function Home() {
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 px-6 bg-gradient-to-b from-card to-background">
+      <section className="pt-28 pb-12 px-6 bg-gradient-to-b from-card to-background">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div className="space-y-6" variants={slideInVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -129,7 +129,7 @@ export default function Home() {
               </motion.div>
             </motion.div>
             <motion.div
-              className="relative h-96 md:h-[600px] rounded-lg overflow-hidden"
+              className="relative h-96 md:h-[480px] rounded-lg overflow-hidden"
               variants={slideRightVariants}
               initial="hidden"
               whileInView="visible"
@@ -137,7 +137,7 @@ export default function Home() {
               whileHover={{ scale: 1.02 }}
             >
               <Image
-                src="/hero-placeholder.svg"
+                src="/hero.png"
                 alt="Premium spices collection"
                 fill
                 className="object-cover"
@@ -262,8 +262,8 @@ export default function Home() {
             <motion.div className="grid md:grid-cols-2 gap-12 items-center" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div className="relative h-96 rounded-lg overflow-hidden" variants={itemVariants} whileHover={{ scale: 1.02 }}>
                 <Image
-                  src="/spices-placeholder.svg"
-                  alt="Spices collection detail"
+                  src="/premium.png"
+                  alt="Premium Spices collection detail"
                   fill
                   className="object-cover"
                 />
@@ -349,8 +349,8 @@ export default function Home() {
               </motion.div>
               <motion.div className="relative h-96 rounded-lg overflow-hidden" variants={itemVariants} whileHover={{ scale: 1.02 }}>
                 <Image
-                  src="/legumes-placeholder.svg"
-                  alt="Legumes and pulses collection"
+                  src="/quality.png"
+                  alt="Quality Legumes and pulses collection"
                   fill
                   className="object-cover"
                 />
