@@ -71,7 +71,7 @@ export default function Home() {
               className="h-auto"
             />
             <div>
-              <p className="text-lg font-bold tracking-tight">THAK Trading</p>
+              <p className="text-lg font-bold tracking-tight"><span className="text-secondary">THAK</span> Trading</p>
               <p className="text-xs text-muted-foreground font-normal">Sister Company of Tsion Alemayehu</p>
             </div>
           </motion.div>
@@ -105,7 +105,7 @@ export default function Home() {
                 </motion.div>
               </motion.div>
               <motion.div className="space-y-3" variants={containerVariants} initial="hidden" animate="visible">
-                <motion.p variants={itemVariants} className="text-primary text-sm font-semibold tracking-widest uppercase flex items-center gap-2">
+                <motion.p variants={itemVariants} className="text-secondary text-sm font-semibold tracking-widest uppercase flex items-center gap-2">
                   <Zap className="w-4 h-4" /> Premium Global Trading
                 </motion.p>
                 <motion.h1 variants={itemVariants} className="text-5xl md:text-6xl font-bold tracking-tight text-balance">
@@ -129,7 +129,7 @@ export default function Home() {
               </motion.div>
             </motion.div>
             <motion.div
-              className="relative h-96 md:h-full rounded-lg overflow-hidden"
+              className="relative h-96 md:h-[600px] rounded-lg overflow-hidden"
               variants={slideRightVariants}
               initial="hidden"
               whileInView="visible"
@@ -137,7 +137,7 @@ export default function Home() {
               whileHover={{ scale: 1.02 }}
             >
               <Image
-                src="/spices-hero.jpg"
+                src="/hero-placeholder.svg"
                 alt="Premium spices collection"
                 fill
                 className="object-cover"
@@ -184,7 +184,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <motion.div className="space-y-12" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.div className="space-y-2 max-w-2xl" variants={itemVariants}>
-              <p className="text-primary text-sm font-semibold tracking-widest uppercase">Our Heritage</p>
+              <p className="text-secondary text-sm font-semibold tracking-widest uppercase">Our Heritage</p>
               <h2 className="text-4xl font-bold tracking-tight">Tsion Alemayehu Import</h2>
               <p className="text-muted-foreground text-lg pt-2">
                 Our parent company with extensive experience serving global industries since its founding.
@@ -262,7 +262,7 @@ export default function Home() {
             <motion.div className="grid md:grid-cols-2 gap-12 items-center" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <motion.div className="relative h-96 rounded-lg overflow-hidden" variants={itemVariants} whileHover={{ scale: 1.02 }}>
                 <Image
-                  src="/spices-detail.jpg"
+                  src="/spices-placeholder.svg"
                   alt="Spices collection detail"
                   fill
                   className="object-cover"
@@ -349,7 +349,7 @@ export default function Home() {
               </motion.div>
               <motion.div className="relative h-96 rounded-lg overflow-hidden" variants={itemVariants} whileHover={{ scale: 1.02 }}>
                 <Image
-                  src="/legumes-detail.jpg"
+                  src="/legumes-placeholder.svg"
                   alt="Legumes and pulses collection"
                   fill
                   className="object-cover"
@@ -503,7 +503,7 @@ export default function Home() {
           <motion.div className="grid md:grid-cols-4 gap-8 mb-8" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.div className="space-y-3" variants={itemVariants}>
               <div className="text-xl font-bold">
-                <span className="text-primary">THAK</span> Trading
+                <span className="text-secondary">THAK</span> Trading
                 <p className="text-xs text-muted-foreground font-normal pt-1">Sister of Tsion Alemayehu</p>
               </div>
               <p className="text-sm text-muted-foreground">

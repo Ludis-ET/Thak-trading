@@ -43,7 +43,7 @@ export default function LoadingScreen() {
             </div>
             {/* Spinning Ring */}
             <motion.div
-              className="absolute -inset-4 rounded-full border-t-4 border-primary border-r-4 border-r-transparent border-b-4 border-b-transparent border-l-4 border-l-transparent"
+              className="absolute -inset-4 rounded-full border-t-4 border-secondary border-r-4 border-r-transparent border-b-4 border-b-transparent border-l-4 border-l-transparent"
               animate={{ rotate: 360 }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
             />
