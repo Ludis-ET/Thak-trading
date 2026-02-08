@@ -46,11 +46,14 @@ const pulseVariants = {
   },
 }
 
+import LoadingScreen from '@/components/LoadingScreen'
+
 export default function Home() {
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null)
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <LoadingScreen />
       {/* Navigation */}
       <motion.nav
         className="border-b border-border bg-card/50 backdrop-blur-sm fixed w-full top-0 z-50"
@@ -61,7 +64,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
           <motion.div className="flex items-center gap-4" whileHover={{ scale: 1.02 }}>
             <Image
-              src="/logo.svg"
+              src="/logo.png"
               alt="THAK Trading Logo"
               width={50}
               height={50}
