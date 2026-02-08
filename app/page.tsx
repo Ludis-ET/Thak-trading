@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Mail, MapPin, Phone, ChevronRight, Zap, ArrowRight, ArrowLeft } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -50,6 +50,32 @@ import LoadingScreen from '@/components/LoadingScreen'
 
 export default function Home() {
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null)
+  const [activeSection, setActiveSection] = useState<string>('')
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      { threshold: 0.5 }
+    )
+
+    const sections = document.querySelectorAll('section[id]')
+    sections.forEach((section) => observer.observe(section))
+
+    return () => sections.forEach((section) => observer.unobserve(section))
+  }, [])
+
+  const navLinks = [
+    { name: 'About', href: '#about' },
+    { name: 'Tsion Alemayehu', href: '#parent' },
+    { name: 'Products', href: '#products' },
+    { name: 'Contact', href: '#contact' },
+  ]
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -76,10 +102,19 @@ export default function Home() {
             </div>
           </motion.div>
           <div className="hidden md:flex gap-8 items-center">
-            <Link href="#about" className="hover:text-primary transition">About</Link>
-            <Link href="#parent" className="hover:text-primary transition">Tsion Alemayehu</Link>
-            <Link href="#products" className="hover:text-primary transition">Products</Link>
-            <Link href="#contact" className="hover:text-primary transition">Contact</Link>
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`transition ${
+                  activeSection === link.href.substring(1)
+                    ? 'text-primary font-bold'
+                    : 'hover:text-primary text-foreground'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
