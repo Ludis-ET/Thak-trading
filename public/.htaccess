@@ -2,7 +2,7 @@
 # Replace the values in quotes with your actual keys
 
 SetEnv RECAPTCHA_SECRET_KEY "6LehxGUsAAAAAMkEFb_mVXrhlm_tQLBX4LvsofpZ"
-SetEnv EMAIL_USER "leulsegedmelaku1020@gmail.com"
+SetEnv EMAIL_USER "thaktrading@gmail.com"
 
 # Optional: Disable directory listing for security
 Options -Indexes
