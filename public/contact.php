@@ -17,15 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Configuration - EDIT THESE VALUES OR SET THEM IN YOUR SERVER ENVIRONMENT
-// SECURITY WARNING: Ideally, set these in your hosting control panel's environment variable manager, specific to PHP.
-// If you must hardcode them here, ensure this file is not publicly readable or accessible via git.
+
 $recaptcha_secret = getenv('RECAPTCHA_SECRET_KEY') ?: 'YOUR_RECAPTCHA_SECRET_KEY_';
 $email_user = getenv('EMAIL_USER') ?: 'info@yourdomain.com';
-/* 
-   NOTE: For standard cPanel hosting using 'mail()', you typically don't need a password if sending from the server itself.
-   If using SMTP (e.g., Gmail), you need a password. This script defaults to standard mail().
-*/
+
+
 
 // Get JSON input
 $input = json_decode(file_get_contents('php://input'), true);
