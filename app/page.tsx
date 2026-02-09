@@ -8,6 +8,9 @@ import { motion } from 'framer-motion'
 import { useState, useEffect, useRef, FormEvent } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 
+
+import InfiniteScrollSlideshow from '@/components/InfiniteScrollSlideshow'
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -445,6 +448,10 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Slideshow Section */}
+      <InfiniteScrollSlideshow />
+
 
       {/* Why Choose Us */}
       <section className="py-20 px-6 bg-background/50 backdrop-blur-sm">
