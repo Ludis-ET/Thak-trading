@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 
-$recaptcha_secret = getenv('RECAPTCHA_SECRET_KEY') ?: '6LeNr2UsAAAAAKxib09H4QQD1R_XrXG5FrnqxbJU';
+$recaptcha_secret = getenv('RECAPTCHA_SECRET_KEY') ?: '6LehxGUsAAAAAMkEFb_mVXrhlm_tQLBX4LvsofpZ';
 $email_user = getenv('EMAIL_USER') ?: 'leulsegedmelaku1020@gmail.com';
 $bypass_recaptcha = getenv('BYPASS_RECAPTCHA') === 'true' || false;
 

@@ -1,7 +1,7 @@
 # Set Environment Variables for the Contact Form
 # Replace the values in quotes with your actual keys
 
-SetEnv RECAPTCHA_SECRET_KEY "6LeNr2UsAAAAAKxib09H4QQD1R_XrXG5FrnqxbJU"
+SetEnv RECAPTCHA_SECRET_KEY "6LehxGUsAAAAAMkEFb_mVXrhlm_tQLBX4LvsofpZ"
 SetEnv EMAIL_USER "leulsegedmelaku1020@gmail.com"
 
 # Optional: Disable directory listing for security
