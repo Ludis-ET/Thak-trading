@@ -48,13 +48,16 @@ if (!$bypass_recaptcha && !empty($recaptcha_secret)) {
 $to = $email_user; 
 $subject = "New Inquiry from $name - " . ($company ?: 'Thak Trading Website');
 
-// Best practice: Set 'From' to a domain-aligned email to avoid spoofing filters,
-// and use 'Reply-To' for the user's email.
-$from_email = "no-reply@" . $_SERVER['HTTP_HOST'];
+// Using a professional sender email as requested. 
+// Note: It's best if this domain matches your actual website domain.
+$from_email = "admin@thaktrading.com"; 
+
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: Thak Trading <$from_email>" . "\r\n";
-$headers .= "Reply-To: $email" . "\r\n";
+$headers .= "From: Thak Trading Support <$from_email>" . "\r\n";
+$headers .= "Reply-To: $name <$email>" . "\r\n";
+$headers .= "Return-Path: <$from_email>" . "\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion();
 
 $email_content = "
 <!DOCTYPE html>
