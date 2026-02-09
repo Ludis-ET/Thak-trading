@@ -592,7 +592,7 @@ export default function Home() {
                 <div className="py-2">
                   <ReCAPTCHA
                     ref={recaptchaRef}
-                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'} // Fallback for dev only, user must update env
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LeNr2UsAAAAAD9ISwreItZNCMRouzV2bMM5Pngk'} // Fallback for dev only, user must update env
                     theme="light"
                   />
                 </div>

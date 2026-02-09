@@ -18,10 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 
-$recaptcha_secret = getenv('RECAPTCHA_SECRET_KEY') ?: 'YOUR_RECAPTCHA_SECRET_KEY_';
-$email_user = getenv('EMAIL_USER') ?: 'info@yourdomain.com';
-
-
+$recaptcha_secret = getenv('RECAPTCHA_SECRET_KEY') ?: '6LeNr2UsAAAAAKxib09H4QQD1R_XrXG5FrnqxbJU';
+$email_user = getenv('EMAIL_USER') ?: 'leulsegedmelaku1020@gmail.com';
+$bypass_recaptcha = getenv('BYPASS_RECAPTCHA') === 'true' || false;
 
 // Get JSON input
 $input = json_decode(file_get_contents('php://input'), true);
@@ -33,7 +32,7 @@ $message = $input['message'] ?? '';
 $captchaToken = $input['captchaToken'] ?? '';
 
 // 1. Verify ReCAPTCHA
-if (!empty($recaptcha_secret) && $recaptcha_secret !== 'YOUR_RECAPTCHA_SECRET_KEY') {
+if (!$bypass_recaptcha && !empty($recaptcha_secret)) {
     $verifyUrl = "https://www.google.com/recaptcha/api/siteverify?secret={$recaptcha_secret}&response={$captchaToken}";
     $verifyResponse = file_get_contents($verifyUrl);
     $responseData = json_decode($verifyResponse);
@@ -46,12 +45,15 @@ if (!empty($recaptcha_secret) && $recaptcha_secret !== 'YOUR_RECAPTCHA_SECRET_KE
 }
 
 // 2. Prepare Email
-$to = $email_user; // Send to the site owner
+$to = $email_user; 
 $subject = "New Inquiry from $name - " . ($company ?: 'Thak Trading Website');
 
+// Best practice: Set 'From' to a domain-aligned email to avoid spoofing filters,
+// and use 'Reply-To' for the user's email.
+$from_email = "no-reply@" . $_SERVER['HTTP_HOST'];
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= "From: $email" . "\r\n"; // Send FROM the user's email so you can reply directly
+$headers .= "From: Thak Trading <$from_email>" . "\r\n";
 $headers .= "Reply-To: $email" . "\r\n";
 
 $email_content = "
