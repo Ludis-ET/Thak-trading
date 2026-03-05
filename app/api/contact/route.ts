@@ -1,26 +1,33 @@
-import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export async function POST(request: Request) {
   try {
-    const { name, email, company, message, captchaToken } = await request.json();
+    const { name, email, company, message, captchaToken } =
+      await request.json();
 
     // 1. Verify ReCAPTCHA (Skip if Dev Mode)
-    const bypassRecaptcha = process.env.NEXT_PUBLIC_BYPASS_RECAPTCHA === 'true';
-    
+    const bypassRecaptcha = process.env.NEXT_PUBLIC_BYPASS_RECAPTCHA === "true";
+
     if (!bypassRecaptcha) {
-        const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-        if (!secretKey) {
-        return NextResponse.json({ success: false, error: 'ReCAPTCHA secret key not configured' }, { status: 500 });
-        }
+      const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+      if (!secretKey) {
+        return NextResponse.json(
+          { success: false, error: "ReCAPTCHA secret key not configured" },
+          { status: 500 },
+        );
+      }
 
-        const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaToken}`;
-        const recaptchaRes = await fetch(verifyUrl, { method: 'POST' });
-        const recaptchaJson = await recaptchaRes.json();
+      const verifyUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaToken}`;
+      const recaptchaRes = await fetch(verifyUrl, { method: "POST" });
+      const recaptchaJson = await recaptchaRes.json();
 
-        if (!recaptchaJson.success) {
-        return NextResponse.json({ success: false, error: 'ReCAPTCHA verification failed' }, { status: 400 });
-        }
+      if (!recaptchaJson.success) {
+        return NextResponse.json(
+          { success: false, error: "ReCAPTCHA verification failed" },
+          { status: 400 },
+        );
+      }
     }
 
     // 2. Configure Transporter
@@ -28,11 +35,14 @@ export async function POST(request: Request) {
     const pass = process.env.EMAIL_PASS;
 
     if (!user || !pass) {
-      return NextResponse.json({ success: false, error: 'Email credentials not configured' }, { status: 500 });
+      return NextResponse.json(
+        { success: false, error: "Email credentials not configured" },
+        { status: 500 },
+      );
     }
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "gmail",
       auth: {
         user,
         pass,
@@ -44,7 +54,7 @@ export async function POST(request: Request) {
       from: user,
       to: user, // Send to yourself
       replyTo: email,
-      subject: `New Inquiry from ${name} - ${company || 'Thak Trading Website'}`,
+      subject: `New Inquiry from ${name} - ${company || "Thak Trading Website"}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -72,12 +82,12 @@ export async function POST(request: Request) {
                 <span class="label">Email:</span> ${email}
               </div>
               <div class="field">
-                <span class="label">Company:</span> ${company || 'Not specified'}
+                <span class="label">Company:</span> ${company || "Not specified"}
               </div>
               <div class="field">
                 <span class="label">Message:</span><br>
                 <div style="background-color: #f9f9f9; padding: 10px; border-radius: 4px; margin-top: 5px;">
-                  ${message.replace(/\n/g, '<br>')}
+                  ${message.replace(/\n/g, "<br>")}
                 </div>
               </div>
             </div>
@@ -93,9 +103,15 @@ export async function POST(request: Request) {
     // 4. Send Email
     await transporter.sendMail(mailOptions);
 
-    return NextResponse.json({ success: true, message: 'Email sent successfully!' });
+    return NextResponse.json({
+      success: true,
+      message: "Email sent successfully!",
+    });
   } catch (error) {
-    console.error('Email send error:', error);
-    return NextResponse.json({ success: false, error: 'Failed to send email' }, { status: 500 });
+    console.error("Email send error:", error);
+    return NextResponse.json(
+      { success: false, error: "Failed to send email" },
+      { status: 500 },
+    );
   }
 }
